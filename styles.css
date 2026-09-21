@@ -597,3 +597,308 @@ html{scroll-behavior:auto}
  .delights .chocolate-transition-dark img{width:150%;max-width:none;left:-25%;top:-28.8vw}
  .delights{padding-top:calc(10.8vw + 24px)}
 }
+
+
+/* Logo original: nenhuma placa ou borda. O degradê se dissolve no cenário. */
+.brand,.topbar.scrolled .brand{
+ position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;
+ flex:0 0 178px;width:178px!important;height:112px!important;min-height:0!important;
+ margin:0!important;padding:0!important;background:transparent!important;
+ border:0!important;border-radius:0!important;box-shadow:none!important;
+ filter:none!important;opacity:1!important;overflow:visible!important;
+ transition:width .25s ease,flex-basis .25s ease;
+}
+.brand::before{
+ content:"";position:absolute;z-index:-1;pointer-events:none;
+ inset:-40% -30%;border:0;border-radius:0;
+ background:radial-gradient(ellipse 55% 45% at 50% 50%,
+  rgba(243,191,145,.86) 0%,rgba(222,157,113,.70) 28%,
+  rgba(174,102,66,.43) 49%,rgba(118,62,41,.17) 68%,
+  rgba(73,34,22,0) 93%);
+}
+.brand img,.topbar.scrolled .brand img{
+ display:block;width:100%!important;height:auto!important;max-height:112px!important;
+ aspect-ratio:auto!important;object-fit:contain;filter:none!important;
+ position:relative;z-index:1;
+}
+.topbar.scrolled .brand{flex-basis:144px;width:144px!important;height:88px!important}
+.topbar.scrolled .brand img{max-height:88px!important}
+.cta-logo,.cta-logo img{filter:none!important}
+.cta-logo{width:205px!important;padding:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+.cta-logo img{width:100%!important;height:auto!important;object-fit:contain}
+/* Conteúdo de primeira dobra sem rótulos redundantes. */
+@media (max-width:980px){
+ .brand{flex-basis:128px;width:128px!important;height:84px!important}
+ .brand img{max-height:84px!important}
+ .topbar.scrolled .brand{flex-basis:110px;width:110px!important;height:76px!important}
+ .nav-wrap{min-height:96px}
+}
+@media (max-width:550px){
+ .brand{flex-basis:106px;width:106px!important;height:72px!important}
+ .brand img{max-height:72px!important}
+ .topbar.scrolled .brand{flex-basis:94px;width:94px!important;height:64px!important}
+ .nav-wrap{min-height:84px}
+ .brand::before{inset:-42% -32%}
+}
+
+/* Ajuste final: imagem enviada com bordas suavemente mescladas ao fundo.
+   Sem o antigo halo/degradê artificial atrás da marca. */
+.brand::before,
+.topbar.scrolled .brand::before { content: none !important; display: none !important; }
+.brand,
+.topbar.scrolled .brand {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  filter: none !important;
+}
+.brand img,
+.topbar.scrolled .brand img {
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 0%, #000 39%, rgba(0,0,0,.93) 46%, rgba(0,0,0,.58) 56%, transparent 71%);
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 0%, #000 39%, rgba(0,0,0,.93) 46%, rgba(0,0,0,.58) 56%, transparent 71%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Faixa única de chocolate branco translúcido: logo, menus e botão na mesma área. */
+.topbar,
+.topbar.scrolled {
+  background: rgba(237, 204, 169, .23) !important;
+  -webkit-backdrop-filter: blur(13px) saturate(108%);
+  backdrop-filter: blur(13px) saturate(108%);
+  border-bottom: 1px solid rgba(255, 238, 215, .17);
+  box-shadow: 0 5px 22px rgba(35, 15, 8, .07);
+}
+/* A faixa substitui qualquer halo atrás da imagem da marca. */
+.brand::before,
+.topbar.scrolled .brand::before { display: none !important; content: none !important; }
+@media (max-width: 980px) {
+  .nav.open {
+    background: rgba(64, 33, 21, .96);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+  }
+}
+
+/* Nova logo oficial enviada: PNG com transparência real, sem máscara ou halo. */
+.brand img,
+.topbar.scrolled .brand img,
+.cta-logo img {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+  object-fit: contain;
+}
+.brand::before,
+.topbar.scrolled .brand::before { display: none !important; content: none !important; }
+
+
+/* Ajuste final: logo maior e mais legível na faixa superior. */
+.topbar,
+.topbar.scrolled {
+  background: rgba(237, 204, 169, .24) !important;
+  -webkit-backdrop-filter: blur(13px) saturate(110%);
+  backdrop-filter: blur(13px) saturate(110%);
+}
+.nav-wrap{height:118px !important; gap:28px !important;}
+.brand,
+.topbar.scrolled .brand{
+  flex:0 0 252px !important;
+  width:252px !important;
+  height:148px !important;
+  align-self:center;
+}
+.brand img,
+.topbar.scrolled .brand img{
+  width:100% !important;
+  max-height:148px !important;
+  height:auto !important;
+  object-fit:contain !important;
+}
+.nav{gap:30px !important;}
+.nav a{font-size:15px !important;}
+.topbar.scrolled .nav-wrap{height:108px !important;}
+.topbar.scrolled .brand{
+  flex-basis:220px !important;
+  width:220px !important;
+  height:128px !important;
+}
+.topbar.scrolled .brand img{max-height:128px !important;}
+@media (max-width: 980px){
+  .nav-wrap{height:100px !important;}
+  .brand, .topbar.scrolled .brand{
+    flex-basis:180px !important;
+    width:180px !important;
+    height:108px !important;
+  }
+  .brand img, .topbar.scrolled .brand img{max-height:108px !important;}
+}
+@media (max-width: 640px){
+  .nav-wrap{height:90px !important;}
+  .brand, .topbar.scrolled .brand{
+    flex-basis:138px !important;
+    width:138px !important;
+    height:82px !important;
+  }
+  .brand img, .topbar.scrolled .brand img{max-height:82px !important;}
+}
+
+/* Logo original no topo: maior, sem recriar ou alterar a arte. */
+@media (min-width: 981px) {
+  .nav-wrap {height: 142px !important;}
+  .brand, .topbar.scrolled .brand {flex:0 0 310px !important;width:310px !important;height:142px !important;}
+  .brand img, .topbar.scrolled .brand img {width:100% !important;height:142px !important;max-height:none !important;object-fit:contain !important;}
+  .topbar.scrolled .nav-wrap {height:130px !important;}
+}
+/* Selo redondo do rodapé: utiliza exclusivamente a logo ORIGINAL enviada. */
+.cta-logo {
+  width: min(410px, 100%) !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1;
+  flex: 0 0 auto;
+  display:flex !important;
+  justify-content:center;
+  align-items:center;
+  border-radius:50% !important;
+  background:#fffaf3 !important;
+  border: 5px solid #5b2b16;
+  box-shadow: 0 0 0 4px #e8d2b2, 0 12px 36px #16070045 !important;
+  overflow:hidden;
+  padding: 12px !important;
+  filter:none !important;
+}
+.cta-logo img {
+  width:100% !important;
+  height:auto !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  border-radius:0 !important;
+  filter:none !important;
+}
+@media(max-width:980px){.cta-logo{width:min(340px,85vw) !important;}}
+@media(max-width:640px){.cta-logo{width:min(320px,85vw) !important;margin:0 auto 22px !important;}}
+
+/* Header: arquivo original, recortado apenas nas margens vazias e exportado em HD.
+   Regras finais substituem tamanhos antigos sem alterar o selo do rodapé. */
+@media (min-width: 981px) {
+  .nav-wrap, .topbar.scrolled .nav-wrap {height:210px !important;gap:18px !important;}
+  .brand, .topbar.scrolled .brand {flex:0 0 365px !important;width:365px !important;height:auto !important;min-width:0 !important;}
+  .brand img, .topbar.scrolled .brand img {width:100% !important;height:auto !important;max-height:none !important;object-fit:contain !important;}
+  .nav {gap:20px !important;}
+}
+@media (min-width: 981px) and (max-width: 1150px) {
+  .nav-wrap, .topbar.scrolled .nav-wrap {height:175px !important;}
+  .brand, .topbar.scrolled .brand {flex-basis:290px !important;width:290px !important;}
+  .nav {gap:12px !important;}
+}
+@media (min-width: 641px) and (max-width: 980px) {
+  .nav-wrap, .topbar.scrolled .nav-wrap {height:150px !important;}
+  .brand, .topbar.scrolled .brand {flex:0 0 245px !important;width:245px !important;height:auto !important;}
+  .brand img, .topbar.scrolled .brand img {width:100% !important;height:auto !important;max-height:none !important;}
+}
+@media (max-width:640px) {
+  .nav-wrap, .topbar.scrolled .nav-wrap {height:112px !important;}
+  .brand, .topbar.scrolled .brand {flex:0 0 min(205px,55vw) !important;width:min(205px,55vw) !important;height:auto !important;}
+  .brand img, .topbar.scrolled .brand img {width:100% !important;height:auto !important;max-height:none !important;}
+}
+
+/* Correção do header: proporção compacta, cores originais e contraste real.
+   A imagem é um recorte da arte original, sem transparência defeituosa. */
+.nav-wrap,.topbar.scrolled .nav-wrap{height:100px !important;min-height:0 !important;gap:24px !important}
+.brand,.topbar.scrolled .brand{
+  flex:0 0 188px !important;width:188px !important;min-width:0 !important;
+  height:80px !important; padding:5px !important;
+  border-radius:12px !important;background:#fffdf8 !important;
+  filter:none !important;opacity:1 !important;box-shadow:0 3px 14px rgba(0,0,0,.18) !important;
+  display:flex !important;align-items:center !important;justify-content:center !important;overflow:hidden !important;
+}
+.brand::before,.topbar.scrolled .brand::before{content:none !important;display:none !important}
+.brand img,.topbar.scrolled .brand img{
+  display:block !important;width:100% !important;height:100% !important;
+  max-height:100% !important;object-fit:contain !important;filter:none !important;
+}
+@media(max-width:980px){
+ .nav-wrap,.topbar.scrolled .nav-wrap{height:86px !important;gap:12px !important}
+ .brand,.topbar.scrolled .brand{flex-basis:164px !important;width:164px !important;height:70px !important}
+ .nav.open,.topbar.scrolled .nav.open{top:82px !important}
+}
+@media(max-width:640px){
+ .nav-wrap,.topbar.scrolled .nav-wrap{height:76px !important}
+ .brand,.topbar.scrolled .brand{flex-basis:146px !important;width:146px !important;height:62px !important}
+ .nav.open,.topbar.scrolled .nav.open{top:74px !important}
+}
+
+/* Header final: imagem original em alta resolucao e transparente, sem placa branca. */
+.nav-wrap,.topbar.scrolled .nav-wrap{height:115px!important;min-height:0!important;gap:24px!important}
+.brand,.topbar.scrolled .brand{flex:0 0 203px!important;width:203px!important;height:95px!important;padding:0!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;filter:none!important;opacity:1!important;overflow:visible!important;display:flex!important;align-items:center!important;justify-content:center!important}
+.brand::before,.brand::after,.topbar.scrolled .brand::before,.topbar.scrolled .brand::after{content:none!important;display:none!important}
+.brand img,.topbar.scrolled .brand img{display:block!important;width:100%!important;height:auto!important;max-height:95px!important;object-fit:contain!important;filter:none!important;opacity:1!important}
+@media(max-width:980px){.nav-wrap,.topbar.scrolled .nav-wrap{height:101px!important}.brand,.topbar.scrolled .brand{flex-basis:179px!important;width:179px!important;height:85px!important}.brand img,.topbar.scrolled .brand img{max-height:85px!important}.nav.open,.topbar.scrolled .nav.open{top:97px!important}}
+@media(max-width:640px){.nav-wrap,.topbar.scrolled .nav-wrap{height:91px!important}.brand,.topbar.scrolled .brand{flex-basis:min(161px,45vw)!important;width:min(161px,45vw)!important;height:75px!important}.brand img,.topbar.scrolled .brand img{max-height:75px!important}.nav.open,.topbar.scrolled .nav.open{top:87px!important}}
+
+/* Header final: arte aprovada, coração vazado, logo legível e sem placa de fundo. */
+.topbar,.topbar.scrolled{background:linear-gradient(100deg,rgba(166,119,89,.97),rgba(88,52,37,.96)) !important;backdrop-filter:blur(12px)}
+.nav-wrap,.topbar.scrolled .nav-wrap{height:135px!important;min-height:0!important;gap:22px!important}
+.brand,.topbar.scrolled .brand{flex:0 0 300px!important;width:300px!important;height:130px!important;min-width:0!important;padding:0!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;filter:none!important;opacity:1!important;overflow:visible!important;display:flex!important;align-items:center!important}
+.brand img,.topbar.scrolled .brand img{width:100%!important;height:auto!important;max-height:130px!important;object-fit:contain!important;filter:none!important;opacity:1!important}
+.nav{gap:clamp(12px,2vw,30px)!important}
+@media(max-width:980px){.nav-wrap,.topbar.scrolled .nav-wrap{height:110px!important}.brand,.topbar.scrolled .brand{flex-basis:240px!important;width:240px!important;height:105px!important}.brand img,.topbar.scrolled .brand img{max-height:105px!important}.nav.open,.topbar.scrolled .nav.open{top:105px!important}}
+@media(max-width:640px){.nav-wrap,.topbar.scrolled .nav-wrap{height:88px!important}.brand,.topbar.scrolled .brand{flex-basis:min(190px,53vw)!important;width:min(190px,53vw)!important;height:82px!important}.brand img,.topbar.scrolled .brand img{max-height:82px!important}.nav.open,.topbar.scrolled .nav.open{top:84px!important}}
+
+
+/* Header final solicitado: usar o mesmo selo redondo do footer no lugar da logo do topo. */
+.topbar,.topbar.scrolled{background:linear-gradient(100deg,rgba(166,119,89,.97),rgba(88,52,37,.96)) !important;backdrop-filter:blur(12px)}
+.nav-wrap,.topbar.scrolled .nav-wrap{height:176px!important;min-height:0!important;gap:22px!important;align-items:center!important}
+.brand,.topbar.scrolled .brand{
+  flex:0 0 152px!important;width:152px!important;height:152px!important;min-width:152px!important;
+  padding:8px!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  background:#fffaf3!important;border:4px solid #5b2b16!important;border-radius:50%!important;
+  box-shadow:0 0 0 3px #e8d2b2,0 12px 36px rgba(22,7,0,.27)!important;
+  overflow:hidden!important;filter:none!important;opacity:1!important;
+}
+.brand::before,.brand::after,.topbar.scrolled .brand::before,.topbar.scrolled .brand::after{content:none!important;display:none!important}
+.brand img,.topbar.scrolled .brand img{
+  display:block!important;width:100%!important;height:auto!important;max-height:none!important;
+  object-fit:contain!important;filter:none!important;opacity:1!important
+}
+.nav{gap:clamp(12px,2vw,30px)!important}
+@media(max-width:980px){
+  .nav-wrap,.topbar.scrolled .nav-wrap{height:158px!important}
+  .brand,.topbar.scrolled .brand{flex-basis:136px!important;width:136px!important;height:136px!important;min-width:136px!important}
+  .nav.open,.topbar.scrolled .nav.open{top:146px!important}
+}
+@media(max-width:640px){
+  .nav-wrap,.topbar.scrolled .nav-wrap{height:132px!important}
+  .brand,.topbar.scrolled .brand{flex-basis:118px!important;width:118px!important;height:118px!important;min-width:118px!important;padding:7px!important}
+  .nav.open,.topbar.scrolled .nav.open{top:122px!important}
+}
+
+/* Header sem faixa: mantém o selo branco original e mostra a imagem do hero por trás. */
+.topbar, .topbar.scrolled {
+  background: transparent !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+.brand, .topbar.scrolled .brand { background: #fffaf3 !important; }
+
+/* Faixa de leitura apenas depois de rolar: topo inicial permanece sem fundo. */
+.topbar {
+  transition: background-color .22s ease, box-shadow .22s ease, backdrop-filter .22s ease;
+}
+.topbar.scrolled {
+  background: rgba(48, 24, 15, .94) !important;
+  background-image: none !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  backdrop-filter: blur(14px) !important;
+  box-shadow: 0 5px 22px rgba(20, 8, 3, .25) !important;
+  border-bottom: 1px solid rgba(255, 236, 209, .16) !important;
+}
+/* O selo circular continua branco no topo e durante a rolagem. */
+.brand, .topbar.scrolled .brand { background: #fffaf3 !important; }
