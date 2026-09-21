@@ -902,3 +902,47 @@ html{scroll-behavior:auto}
 }
 /* O selo circular continua branco no topo e durante a rolagem. */
 .brand, .topbar.scrolled .brand { background: #fffaf3 !important; }
+
+/* Ajuste exclusivo para celular: selo menor e menu acompanha o fluxo da página,
+   sem faixa fixa ao rolar. O comportamento no desktop permanece intacto. */
+@media (max-width: 640px) {
+  .topbar, .topbar.scrolled {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background: transparent !important;
+    background-image: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+  .nav-wrap, .topbar.scrolled .nav-wrap {
+    height: 106px !important;
+    min-height: 0 !important;
+  }
+  .brand, .topbar.scrolled .brand {
+    flex: 0 0 92px !important;
+    width: 92px !important;
+    height: 92px !important;
+    min-width: 92px !important;
+    padding: 6px !important;
+    background: #fffaf3 !important;
+  }
+  .brand img, .topbar.scrolled .brand img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+  .nav.open, .topbar.scrolled .nav.open { top: 102px !important; }
+}
+
+
+/* Ajuste mobile: mostrar mais da parte superior da imagem empresarial, evitando cortar logo e textos. */
+@media(max-width:640px){
+  .business-media{height:312px !important; overflow:hidden !important;}
+  .business-media img{object-position:center 10% !important;}
+}
