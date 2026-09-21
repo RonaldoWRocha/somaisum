@@ -946,3 +946,263 @@ html{scroll-behavior:auto}
   .business-media{height:312px !important; overflow:hidden !important;}
   .business-media img{object-position:center 10% !important;}
 }
+
+
+/* Ajuste mobile solicitado: descer bem a imagem da seção Empresas, priorizando logo e textos superiores mesmo que corte parte das caixas. */
+@media(max-width:640px){
+  .business-media{
+    height:338px !important;
+    min-height:0 !important;
+    margin-top:18px !important;
+    overflow:hidden !important;
+  }
+  .business-media img{
+    object-position:center top !important;
+    transform:translateY(24px) !important;
+    height:calc(100% + 24px) !important;
+  }
+}
+
+
+/* Ajuste fino mobile: manter as ondulações, mas evitar que cortem a logo e os textos da imagem de empresas. */
+@media(max-width:640px){
+  .business .section-curve{
+    height:30px !important;
+  }
+  .business-media{
+    height:350px !important;
+    min-height:0 !important;
+    margin-top:0 !important;
+    overflow:hidden !important;
+  }
+  .business-media img{
+    object-position:center top !important;
+    transform:translateY(54px) !important;
+    height:calc(100% + 54px) !important;
+  }
+}
+
+/* Mobile: a ondulacao fica sobre a fotografia, sem cobrir logo ou textos.
+   A versao mobile acrescenta apenas uma continuacao visual no topo da foto. */
+@media(max-width:640px){
+ .business .section-curve{display:block!important;visibility:visible!important;top:0!important;height:45px!important;z-index:10!important;fill:var(--bg)!important;transform:scaleX(-1)!important;}
+ .business-media{height:auto!important;min-height:0!important;max-height:none!important;margin:0!important;overflow:hidden!important;background:transparent!important;}
+ .business-media picture{display:block!important;width:100%!important;height:auto!important;}
+ .business-media picture img{display:block!important;width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center top!important;transform:none!important;}
+}
+
+
+/* Mobile: imagem original, sem esticar ou reconstruir a fotografia.
+   Reservar espaço acima para a onda sem cobrir a marca e os textos. */
+@media (max-width:640px) {
+  .business .section-curve {
+    display:block!important;visibility:visible!important;top:0!important;
+    height:54px!important;z-index:10!important;fill:var(--bg)!important;
+    transform:scaleX(-1)!important;
+  }
+  .business-media {
+    height:auto!important;min-height:0!important;max-height:none!important;
+    margin:0!important;padding-top:41px!important;overflow:hidden!important;
+    background:var(--bg)!important;
+  }
+  .business-media > img {
+    display:block!important;width:100%!important;height:auto!important;max-height:none!important;
+    object-fit:contain!important;object-position:center top!important;
+    transform:none!important;
+  }
+}
+
+
+/* Mobile: mover a ondulação da seção Empresas para baixo da imagem, sem deformar a foto. */
+@media (max-width:640px) {
+  .business .section-curve {
+    display:none !important;
+  }
+  .business-media {
+    position:relative !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    margin:0 !important;
+    padding-top:0 !important;
+    overflow:hidden !important;
+    background:var(--bg) !important;
+  }
+  .business-media > img {
+    display:block !important;
+    width:100% !important;
+    height:auto !important;
+    max-height:none !important;
+    object-fit:contain !important;
+    object-position:center top !important;
+    transform:none !important;
+  }
+  .business-media::after {
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-1px;
+    height:56px;
+    background:var(--bg);
+    z-index:4;
+    -webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201440%20140%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20fill%3D%27black%27%20d%3D%27M0%200H1440V38C1270%20150%201160%2025%201000%2055S770%20143%20615%2078%20380%2025%20240%2077%2085%2096%200%2047Z%27/%3E%3C/svg%3E");
+    mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201440%20140%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20fill%3D%27black%27%20d%3D%27M0%200H1440V38C1270%20150%201160%2025%201000%2055S770%20143%20615%2078%20380%2025%20240%2077%2085%2096%200%2047Z%27/%3E%3C/svg%3E");
+    -webkit-mask-repeat:no-repeat;
+    mask-repeat:no-repeat;
+    -webkit-mask-size:100% 100%;
+    mask-size:100% 100%;
+    -webkit-mask-position:center bottom;
+    mask-position:center bottom;
+  }
+}
+
+
+/* Ajuste final mobile: ondulações inferiores com abas voltadas para baixo. */
+@media (max-width:640px) {
+  .business-media::after {
+    transform: scaleY(-1) !important;
+    transform-origin: center !important;
+    bottom: -1px !important;
+    height: 58px !important;
+  }
+}
+
+
+/* Ajustes finais mobile solicitados:
+   - usar exatamente a mesma coloração clara da seção de baixo na área das ondulações;
+   - centralizar e aumentar a logo do header no celular. */
+@media (max-width:640px) {
+  .business, .business-copy {
+    background:#fbf5ed !important;
+  }
+  .business-media {
+    background:#fbf5ed !important;
+  }
+  .business-media::after {
+    background:#fbf5ed !important;
+  }
+
+  .topbar, .topbar.scrolled {
+    background:transparent !important;
+  }
+  .nav-wrap, .topbar.scrolled .nav-wrap {
+    position:relative !important;
+    justify-content:center !important;
+    height:118px !important;
+    min-height:118px !important;
+    gap:0 !important;
+  }
+  .brand, .topbar.scrolled .brand {
+    flex:0 0 108px !important;
+    width:108px !important;
+    height:108px !important;
+    min-width:108px !important;
+    padding:6px !important;
+    margin:0 auto !important;
+    align-self:center !important;
+    background:#fffaf3 !important;
+  }
+  .brand img, .topbar.scrolled .brand img {
+    width:100% !important;
+    height:auto !important;
+    max-height:none !important;
+  }
+  .nav-toggle {
+    position:absolute !important;
+    right:18px !important;
+    top:50% !important;
+    transform:translateY(-50%) !important;
+    margin-left:0 !important;
+    z-index:30 !important;
+  }
+  .nav.open, .topbar.scrolled .nav.open {
+    top:112px !important;
+  }
+  .hero-grid {
+    padding-top:152px !important;
+  }
+}
+
+/* Mobile: selo maior, centralizado e sem a linha residual na transição ondulada. */
+@media (max-width:640px) {
+  .nav-wrap, .topbar.scrolled .nav-wrap {
+    height:148px !important;
+    min-height:148px !important;
+  }
+  .brand, .topbar.scrolled .brand {
+    flex:0 0 136px !important;
+    width:136px !important;
+    height:136px !important;
+    min-width:136px !important;
+    margin:0 auto !important;
+    padding:6px !important;
+  }
+  .brand img, .topbar.scrolled .brand img {
+    display:block !important;
+    width:100% !important;
+    height:auto !important;
+    max-height:none !important;
+    object-fit:contain !important;
+  }
+  .nav-toggle {right:12px !important;}
+  .nav.open, .topbar.scrolled .nav.open {top:144px !important;}
+  .hero-grid {padding-top:183px !important;}
+  .business::before {display:none !important;content:none !important;}
+  .business-media {border:0 !important;}
+  .business-copy {border:0 !important;}
+  .business-media::after {bottom:-2px !important;height:60px !important;}
+}
+
+
+/* Ajuste final solicitado: logo ainda maior no mobile e remoção total do risco abaixo da onda. */
+@media (max-width:640px) {
+  .nav-wrap, .topbar.scrolled .nav-wrap {
+    height:164px !important;
+    min-height:164px !important;
+    justify-content:center !important;
+  }
+  .brand, .topbar.scrolled .brand {
+    flex:0 0 156px !important;
+    width:156px !important;
+    height:156px !important;
+    min-width:156px !important;
+    padding:7px !important;
+    margin:0 auto !important;
+  }
+  .brand img, .topbar.scrolled .brand img {
+    width:100% !important;
+    height:auto !important;
+    max-height:none !important;
+  }
+  .nav-toggle {
+    right:14px !important;
+  }
+  .nav.open, .topbar.scrolled .nav.open {
+    top:156px !important;
+  }
+  .hero-grid {
+    padding-top:198px !important;
+  }
+
+  .business::before,
+  .business-copy::before,
+  .business-copy::after {
+    display:none !important;
+    content:none !important;
+  }
+  .business-media::after {
+    bottom:-3px !important;
+    height:64px !important;
+    background:#fbf5ed !important;
+  }
+  .business-copy {
+    position:relative !important;
+    z-index:5 !important;
+    background:#fbf5ed !important;
+    margin-top:-12px !important;
+    padding-top:42px !important;
+    border-top:0 !important;
+    box-shadow:none !important;
+  }
+}
